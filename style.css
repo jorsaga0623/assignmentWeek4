@@ -1,0 +1,103 @@
+:root { --accent-color: #978063; --placeholder-color: #d6d6d6; --text-color: #24211e; }
+/* Base styles */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--text-color); background: #fff; }
+a { color: inherit; text-decoration: none; }
+
+/* Header */
+.site-header { background: var(--accent-color); }
+.header-inner { max-width: 1200px; min-height: 92px; margin: auto; padding: 18px 12px 8px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
+.site-logo { font-family: "PT Serif", Georgia, serif; font-size: 24px; line-height: 1.12; font-weight: 700; color: #fff; }
+.main-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 19px; padding-bottom: 2px; }
+.main-nav a { color: #fff; font-size: 12px; white-space: nowrap; }
+.main-nav a:hover, .featured-text a:hover { text-decoration: underline; }
+
+
+/* Resource dropdown: hover on desktop, click/tap on touch devices */
+.main-nav .nav-dropdown { position: relative; }
+.nav-dropdown details { position: relative; }
+.nav-dropdown summary { color: #fff; font-size: 12px; cursor: pointer; list-style: none; white-space: nowrap; padding: 8px 0; }
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary:hover, .nav-dropdown summary:focus-visible { text-decoration: underline; }
+.dropdown-chevron { margin-left: 4px; }
+.dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 180px; padding: 8px 0; background: var(--accent-color); box-shadow: 0 7px 18px #0002; z-index: 20; }
+.main-nav .dropdown-menu a { display: block; padding: 11px 16px; font-size: 12px; }
+.main-nav .dropdown-menu a:hover, .main-nav .dropdown-menu a:focus-visible { background: #ffffff26; text-decoration: none; }
+.nav-dropdown details[open] .dropdown-menu { display: block; }
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .dropdown-menu, .nav-dropdown:focus-within .dropdown-menu { display: block; }
+}
+
+/* Hero */
+.hero { min-height: 260px; background: var(--placeholder-color); display: flex; justify-content: flex-start; align-items: flex-start; padding: 75px 12%; }
+.hero h1 { font-size: 34px; font-weight: 400; margin: 0; }
+
+/* Shared content sections */
+.content-section { max-width: 1120px; margin: 0 auto; padding: 28px 32px 0; }
+.content-section h2 { text-align: center; font-size: 17px; font-weight: 400; margin: 0 0 26px; }
+.history-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 34px; }
+.placeholder-card { display: block; background: var(--placeholder-color); aspect-ratio: 1.92 / 1; transition: background-color .2s; }
+.placeholder-card:hover { background: #c4c4c4; }
+.subjects-section { padding-top: 42px; }
+.subject-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.subject-grid .placeholder-card { aspect-ratio: 1.35 / 1; }
+
+/* Featured article */
+.featured-section { max-width: 1120px; margin: 90px auto 55px; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+.featured-image { background: var(--placeholder-color); min-height: 210px; }
+.featured-text { font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.featured-text p { margin: 0 0 25px; }
+.featured-text a { display: inline-block; }
+
+/* Footer */
+.site-footer { background: var(--placeholder-color); text-align: center; padding: 18px; font-size: 15px; }
+
+
+/* Semantic lists, image and article layout */
+.subject-grid { list-style: none; padding: 0; margin: 0; }
+.subject-grid li { min-width: 0; }
+.subject-grid .placeholder-card { display: flex; align-items: center; justify-content: center; font-size: 14px; }
+..history-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.history-grid > .placeholder-card:nth-child(2) img {
+  object-position: right top;
+}
+.featured-section { display: block; }
+.featured-article { display: grid; grid-template-columns: 1fr 1fr; gap: 45px; align-items: center; }
+.featured-text h2 { font-size: 21px; font-weight: 500; margin: 0 0 14px; }
+.related-topics { border-top: 1px solid #ddd; margin-top: 28px; padding-top: 16px; font-size: 14px; }
+.related-topics h3 { margin: 0 0 8px; }
+.related-topics p { margin: 0; }
+
+/* History Timeline — desktop */
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 34px;
+}
+
+.history-grid > .placeholder-card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1.92 / 1;
+  overflow: hidden;
+}
+
+.history-grid > .placeholder-card > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.history-grid > .placeholder-card:nth-child(2) > img {
+  object-position: right top;
+}
